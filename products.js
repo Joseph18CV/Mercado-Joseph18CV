@@ -88,3 +88,56 @@ const products = [
     imageDescription: "",
   },
 ];
+
+const ulFruits = document.querySelector(".fruits ul")
+const ulDrinks = document.querySelector(".drinks ul")
+const ulHygiene = document.querySelector(".hygiene ul")
+
+function createElementList (list) {
+  for (let i = 0; i < list.length; i++){
+
+  const li = document.createElement("li")
+        li.classList.add("product")
+
+  let img = document.createElement("img")
+      img.classList.add("product-img")
+      img.src = (list[i].image === undefined) ? "./img/products/no-img.svg" : list[i].image;
+
+  let main = document.createElement("main")
+      main.classList.add("product-main")
+      let h1 = document.createElement("h1")
+          h1.classList.add("product-title")
+          h1.innerText = `${list[i].title}`
+      let h5 = document.createElement("h5")
+          h5.classList.add("product-category")
+          h5.innerText = `${list[i].category}`
+      let strong = document.createElement("strong")
+          strong.classList.add("product-price")
+          strong.innerText = `R$ ${list[i].price}`
+  
+  main.appendChild(h1)
+  main.appendChild(h5)
+  main.appendChild(strong)
+
+  if (list[i].category === "Frutas"){
+    li.appendChild(img)
+    li.appendChild(main)
+    ulFruits.appendChild(li)
+  }
+  if (list[i].category === "Bebidas"){
+    li.appendChild(img)
+    li.appendChild(main)
+    ulDrinks.appendChild(li)
+  }
+  if (list[i].category === "Higiene"){
+    li.appendChild(img)
+    li.appendChild(main)
+    ulHygiene.appendChild(li)
+  }
+ }
+}
+console.log(createElementList(products))
+
+
+
+

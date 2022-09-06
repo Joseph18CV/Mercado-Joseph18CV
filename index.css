@@ -44,6 +44,7 @@ nav img {
 
 .products-content ul{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 14px;
   list-style: none;
